@@ -24,7 +24,7 @@ public class Pagamento {
   @Column(nullable = false)
   private float valor;
 
-  @ManyToOne
+  // @ManyToOne(mappedBy = "jogador")
   private Jogador jogador;
 
   public Pagamento() {}
