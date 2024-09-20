@@ -28,7 +28,7 @@ public class Jogador {
   @Column(nullable = false)
   private Date datanasc;
 
-  @OneToMany(cascade = CascadeType.ALL, mappedBy = "pagamento")
+  @OneToMany(cascade = CascadeType.ALL, mappedBy = "jogador")
   private List<Pagamento> pagamento;
 
   public Jogador() {};
