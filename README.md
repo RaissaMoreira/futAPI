@@ -31,6 +31,10 @@ O sistema foi desenvolvido para gerenciar Jogadores e pagamentos mensais, inclui
 -   **Endpoint**: `/jogador/buscar`
 -   **Método**: `GET`
 -   **Descrição**: Busca jogadores cujo nome contém a string especificada.
+-   **Parâmetro de Query:
+nome**: O nome (ou parte do nome) a ser buscado.
+- **Exemplo de URL**:
+ `/jogador/buscar?nome=João` 
 
 ### 4. Listar Todos os Jogadores
 
