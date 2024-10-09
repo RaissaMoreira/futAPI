@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import jakarta.transaction.Transactional;
 import jogos.futebol.demo.model.Jogador;
@@ -43,6 +44,17 @@ public class JogadorController {
         return new ResponseEntity<>(jogador, HttpStatus.OK);
 
       return new ResponseEntity<>(jogador, HttpStatus.NOT_FOUND);
+
+    } catch (Exception e) {
+      return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+  }
+
+  @GetMapping("/buscar")
+  public ResponseEntity<List<Jogador>> getJogadorByName(@RequestParam(name="nome") String nome) {
+    try {
+      List<Jogador> jogadores = rep.findByNomeContaining(nome);
+      return new ResponseEntity<>(jogadores, HttpStatus.OK);
 
     } catch (Exception e) {
       return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
