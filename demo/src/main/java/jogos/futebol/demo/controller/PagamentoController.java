@@ -38,6 +38,8 @@ public class PagamentoController {
 
         if (jogador.isPresent()) {
           rep.save(new Pagamento(pagamento.cod_pagamento(), pagamento.ano(), pagamento.mes(), pagamento.valor(), jogador.get()));
+        } else {
+          return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
       }
       
